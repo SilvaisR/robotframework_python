@@ -1,47 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.10.5 on win32)" generated="20220816 16:51:46.401" rpa="false" schemaversion="3">
+<robot generator="Robot 5.0.1 (Python 3.10.5 on win32)" generated="20220823 15:29:51.706" rpa="false" schemaversion="3">
 <suite id="s1" name="Consulta Google" source="C:\Iterasys\robot_framework\133PetsRobotFramework\consulta_google.robot">
-<test id="s1-t1" name="Consulta Google" line="9">
+<test id="s1-t1" name="Consulta Google" line="16">
 <kw name="Acessar o Chrome na pagina &lt;https://www.google.com.br&gt;" sourcename="Acessar o ${browser} na pagina &lt;${url}&gt;">
 <kw name="Open Browser" library="SeleniumLibrary">
-<arg>${url} ${browser}</arg>
+<arg>${url}</arg>
+<arg>${browser}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20220816 16:51:47.230" level="INFO">Opening browser 'firefox' to base url 'https://www.google.com.br Chrome'.</msg>
-<msg timestamp="20220816 16:51:47.242" level="INFO">Firefox driver log is always forced to to: C:\Iterasys\robot_framework\133PetsRobotFramework\geckodriver-1.log</msg>
-<msg timestamp="20220816 16:51:47.286" level="INFO">Cannot capture screenshot because no browser is open.</msg>
-<msg timestamp="20220816 16:51:47.286" level="FAIL">WebDriverException: Message: 'geckodriver' executable needs to be in PATH. 
-</msg>
-<status status="FAIL" starttime="20220816 16:51:47.229" endtime="20220816 16:51:47.364"/>
+<msg timestamp="20220823 15:29:52.141" level="INFO">Opening browser 'Chrome' to base url 'https://www.google.com.br'.</msg>
+<status status="PASS" starttime="20220823 15:29:52.140" endtime="20220823 15:29:55.300"/>
 </kw>
-<status status="FAIL" starttime="20220816 16:51:47.228" endtime="20220816 16:51:47.368"/>
+<status status="PASS" starttime="20220823 15:29:52.139" endtime="20220823 15:29:55.300"/>
 </kw>
-<kw name="No campo de pesquisa digitar &quot;Ovos de Páscoa&quot;" sourcename="No campo de pesquisa digitar &quot;${termo}&quot;">
-<status status="NOT RUN" starttime="20220816 16:51:47.370" endtime="20220816 16:51:47.370"/>
+<kw name="Digite &quot;Ovos de páscoa&quot; na barra de pesquisa" sourcename="Digite &quot;${termo}&quot; na barra de pesquisa">
+<kw name="Set Test Variable" library="BuiltIn">
+<arg>${termo}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<msg timestamp="20220823 15:29:55.304" level="INFO">${termo} = Ovos de páscoa</msg>
+<status status="PASS" starttime="20220823 15:29:55.302" endtime="20220823 15:29:55.305"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>name = q</arg>
+<arg>${termo}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20220823 15:29:55.307" level="INFO">Typing text 'Ovos de páscoa' into text field 'name = q'.</msg>
+<status status="PASS" starttime="20220823 15:29:55.305" endtime="20220823 15:29:55.511"/>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<arg>name = q</arg>
+<arg>ENTER</arg>
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<msg timestamp="20220823 15:29:55.513" level="INFO">Sending key(s) ('ENTER',) to name = q element.</msg>
+<msg timestamp="20220823 15:29:55.806" level="INFO">Pressing special key ENTER to element.</msg>
+<msg timestamp="20220823 15:29:55.807" level="INFO">Releasing special key ENTER.</msg>
+<status status="PASS" starttime="20220823 15:29:55.512" endtime="20220823 15:29:58.783"/>
+</kw>
+<status status="PASS" starttime="20220823 15:29:55.301" endtime="20220823 15:29:58.783"/>
 </kw>
 <kw name="Validar se aparece no titulo da guia o resultado esperado">
-<status status="NOT RUN" starttime="20220816 16:51:47.371" endtime="20220816 16:51:47.371"/>
+<kw name="Get Title" library="SeleniumLibrary">
+<var>${titulo}</var>
+<doc>Returns the title of the current page.</doc>
+<msg timestamp="20220823 15:29:58.794" level="INFO">${titulo} = Ovos de páscoa - Pesquisa Google</msg>
+<status status="PASS" starttime="20220823 15:29:58.785" endtime="20220823 15:29:58.794"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${titulo}</arg>
+<arg>${termo}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20220823 15:29:58.795" endtime="20220823 15:29:58.799"/>
+</kw>
+<status status="PASS" starttime="20220823 15:29:58.784" endtime="20220823 15:29:58.800"/>
 </kw>
 <kw name="Fechar o browser">
-<status status="NOT RUN" starttime="20220816 16:51:47.371" endtime="20220816 16:51:47.371"/>
+<kw name="Close Browser" library="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20220823 15:29:58.801" endtime="20220823 15:30:01.041"/>
+</kw>
+<status status="PASS" starttime="20220823 15:29:58.801" endtime="20220823 15:30:01.042"/>
 </kw>
 <tag>completo, rapido</tag>
-<status status="FAIL" starttime="20220816 16:51:47.225" endtime="20220816 16:51:47.373">WebDriverException: Message: 'geckodriver' executable needs to be in PATH. 
-</status>
+<status status="PASS" starttime="20220823 15:29:52.137" endtime="20220823 15:30:01.042"/>
 </test>
 <doc>Testes de consulta noo buscador Google
 Abre o navegador e realiza a consulta
 e realiza a consulta</doc>
-<status status="FAIL" starttime="20220816 16:51:46.406" endtime="20220816 16:51:47.375"/>
+<status status="PASS" starttime="20220823 15:29:51.709" endtime="20220823 15:30:01.045"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="0" fail="1" skip="0">completo, rapido</stat>
+<stat pass="1" fail="0" skip="0">completo, rapido</stat>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Consulta Google">Consulta Google</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Consulta Google">Consulta Google</stat>
 </suite>
 </statistics>
 <errors>
