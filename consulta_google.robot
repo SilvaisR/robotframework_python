@@ -42,7 +42,7 @@ Digite "${termo}" na barra de pesquisa
 
 
 Validar se aparece no titulo da guia o resultado esperado
-    ${titulo} =     Get title
+    ${titulo}         Get title
     Should contain    ${titulo}       ${termo}
 
 
