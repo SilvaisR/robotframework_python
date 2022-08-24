@@ -3,6 +3,7 @@ Documentation    Consultas no site da Petz
 
 Library     SeleniumLibrary
 Library     OperationSystem
+Library     String
 
 Test Teardown   close browser
 
@@ -32,16 +33,17 @@ Dado que acesso o site como cliente
     open browser    ${url}      ${browser}
 
 Quando escrevo "${termo}" na barra de pesquisa
-    Set Test Variable   ${termo}
+    Set Test Variable                ${termo}
+    convert to upper case            ${termo}
     input text      id = search      ${termo}
 
 E clico no botão da lupa
-    double click element     button-search
+    click button     class = button-search
 
 E aperto a tecla enter
-    press key       name = q    ENTER
+    press keys     name = q      ENTER
 
 
 Entao exibe um grid e a frase do resultado esperado
-    element should contain      css = h2Categoria.nomeCategoria       Resultado para "${termo}"
+    element should contain      css = h1.h2Categoria.nomeCategoria       RESULTADO PARA "${termo}"
 
