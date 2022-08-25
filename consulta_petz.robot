@@ -34,8 +34,7 @@ Dado que acesso o site como cliente
 
 Quando escrevo "${termo}" na barra de pesquisa
     Set Test Variable                ${termo}
-    convert to upper case            ${termo}
-    input text      id = search      ${termo}
+    input text      name = q      ${termo}
 
 E clico no botão da lupa
     click button     class = button-search
@@ -45,5 +44,6 @@ E aperto a tecla enter
 
 
 Entao exibe um grid e a frase do resultado esperado
-    element should contain      css = h1.h2Categoria.nomeCategoria       RESULTADO PARA "${termo}"
+    ${termo}    convert to upper case       ${termo}
+    element should contain  css = h1.h2Categoria.nomeCategoria      RESULTADOS PARA "${termo}"
 
